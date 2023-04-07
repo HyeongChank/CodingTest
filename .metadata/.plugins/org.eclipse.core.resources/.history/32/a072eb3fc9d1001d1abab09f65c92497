@@ -1,0 +1,15 @@
+/**
+ * 
+ */
+/**
+ * @author SW
+ *
+ */
+module codetest_programmers {
+
+	requires poi;
+	requires poi.ooxml;
+	requires xmlbeans;
+	
+	opens org.apache.poi.xssf.eventusermodel;
+}

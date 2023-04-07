@@ -1,0 +1,54 @@
+package test;
+
+import java.util.ArrayList;
+import java.util.List;
+
+class Bag<T>{
+	private T data;
+		
+	public Bag(T data) {
+		this.data = data;
+	}
+
+	public T getData() {
+		return data;
+	}
+
+	public void setData(T data) {
+		this.data = data;
+	}
+
+	void showType() {
+		System.out.println("T의 타입은 " + data.getClass().getName());
+	}
+	private List<T> dl = new ArrayList<>();
+	
+}
+class Big{}
+class Small{}
+// Generic 사용하는 이유 : 불필요한 타입 변경 필요 없음. 필요한 타입이 있으면 바로 만들면 됨
+public class Generic {
+
+	public static void main(String[] args) {
+		Bag<Big> b = new Bag<>(new Big());
+		Bag<Small> s = new Bag<>(new Small());
+		Bag<Integer> i = new Bag<>(123);
+		
+		Bag<String> str = new Bag<>("str");
+		
+		b.showType();
+		s.showType();
+		i.showType();
+		str.showType();
+		
+		int num = i.getData();
+		System.out.println(num);
+		
+		String sen = str.getData();
+		System.out.println(sen);
+		
+
+	}
+
+
+}

@@ -1,0 +1,225 @@
+package test;
+// 연결 리스트 클래스
+
+import java.util.Scanner;
+
+class Person2{
+	private String name;
+	private int age;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public Person2(String name, int age) {
+		super();
+		this.name = name;
+		this.age = age;
+	}
+	public Person2() {
+		
+	}
+	
+}
+class Node9 {
+	private Person2 ps;
+    private String data;
+    private String [] list;
+    private Node9 next;        //다음노드
+    
+    
+    public Node9() {
+    	
+    }
+    public Node9(Person2 ps, Node9 next) {
+		this.ps = ps;
+		this.next = next;
+	}
+	Node9(String data, Node9 next) {
+        this.data = data;
+        this.next = next;
+    }
+    Node9(String[] list, Node9 next) {
+        this.list = list;
+        this.next = next;
+    }
+
+	public Person2 getPs() {
+		return ps;
+	}
+	public void setPs(Person2 ps) {
+		this.ps = ps;
+	}
+	
+	
+	
+	public Node9 getNext() {
+		return next;
+	}
+
+	public void setNext(Node9 next) {
+		this.next = next;
+	}
+
+	public String getData() {
+		return data;
+	}
+
+	public void setData(String data) {
+		this.data = data;
+	}
+	public String[] getList() {
+		return list;
+	}
+	public void setList(String[] list) {
+		this.list = list;
+	}
+	@Override
+	public String toString() {
+		return "Node9 [ps=" + ps + "]";
+	}
+	
+	
+    
+}
+public class CircularListObject {
+	static int count=0;
+	public static void main(String args[]) {
+
+		Scanner kb = new Scanner(System.in);
+		while(true){
+			System.out.println("아래 메뉴 중 선택");
+			System.out.println("1.추가 2.삭제 3.검색 4.print 5.circular list");
+			int ch = kb.nextInt();
+			switch(ch) {
+				case 1 :
+					System.out.println("추가할 data");
+					Person2 ps = new Person2();
+					ps.setName(kb.next());
+					ps.setAge(kb.nextInt());
+					addFirst3(ps);
+//					String no = kb.next();
+//					String no2 = kb.next();
+//					String [] li = {no, no2};
+//					addFirst(no);
+//					addFirst2(li);
+					break;
+					
+				case 2 : 
+					System.out.println("삭제");
+					delete();
+					break;
+					
+				case 3 :
+					System.out.println("검색할 data");
+					String noS = kb.next();
+					search(noS);
+					break;
+
+				case 4 :
+					System.out.println("출력");
+					print();
+					break;
+					
+				case 5 :
+									
+					circul();
+					break;
+			}
+		}			
+	}
+	static Node9 head;
+ 	static Node9 tail;
+// 	private static void addFirst2(String[] li) {
+//		Node9 a = head;
+//		head = new Node9(li, a);
+//		System.out.println(li[0] + li[1]);
+//		;
+//	}
+ 	private static void addFirst3(Person2 ps) {
+ 		Node9 a = head;
+ 		
+ 		head = new Node9(ps, a);
+ 		count++;
+ 		System.out.println(ps.getName() + "  " + ps.getAge());
+ 	}
+//	public static void addFirst(String k) {
+//		Node9 n = head;      // 삽입 전의 머리 노드
+//		// n에서 여태까지 축적된 head를 받고 이를 다시 head의 next에 그대로 넣음으로써 node 연결
+//		head = new Node9(k, n);
+//	}
+ 	
+	// 10 번 이내로 돌도록 함
+	// list, data, object 둘 중 하나 골라서 돌리면 됨
+	public static void circul() {
+		Node9 f = head;
+		tail = f;
+		while(true) {
+			if(tail.getNext() != null) {
+				tail = tail.getNext();
+			}
+			else {
+				tail.setNext(head);
+				break;
+			}
+		}
+		int i=0;
+		while(i<10) {
+			//리스트
+//			String [] list = tail.getList();
+//			for(int i1=0; i1<list.length; i1++) {
+//				System.out.print(list[i1]);
+//			}
+//			System.out.println(tail.getData());
+//			tail = tail.getNext();
+			//object
+			Person2 ps = tail.getPs();
+			System.out.println(ps.getName() + "  " + ps.getAge());
+			tail = tail.getNext();
+			i++;
+		}
+	}
+	
+	public static void search(String k) {
+		Node9 sp = head;
+		while(sp != null) {
+			if(sp.getData().equals(k)) {
+				System.out.println(k + "는 저장되어 있습니다.");
+				break;
+			}
+			else {
+				sp = sp.getNext();
+				if(sp==null) {
+					System.out.println("no information");		
+				}
+			}
+		}
+	}
+	public static void delete() {
+		if(head != null) {
+			head = head.getNext();
+		}
+	}
+	public static void print() {
+		Node9 np = head;
+		while (np != null) {
+			System.out.print(np.getData());
+			System.out.print("  ");
+//			String [] list = np.getList();
+//			for(int i=0; i<list.length; i++) {
+//				System.out.print(list[i]);
+//			}
+//			System.out.println("  ");
+			np = np.getNext();
+		}
+		System.out.println();
+	}
+
+}

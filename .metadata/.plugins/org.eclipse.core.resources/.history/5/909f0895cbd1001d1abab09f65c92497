@@ -1,0 +1,19 @@
+/**
+ * 
+ */
+/**
+ * @author SW
+ *
+ */
+module codetest_programmers {
+
+	requires poi;
+    requires poi.ooxml;
+    requires xmlbeans;
+
+    exports org.apache.poi.xssf.usermodel;
+    exports org.apache.poi.ss.usermodel;
+    exports org.apache.poi.hssf.usermodel;
+    exports org.apache.poi.hssf.eventusermodel;
+}
+

@@ -1,0 +1,157 @@
+package test;
+// 연결 리스트 클래스
+
+import java.util.Scanner;
+
+
+class Node6 {
+    private int data;            
+    private Node6 next;        //다음노드
+
+    Node6(int data, Node6 next) {
+        this.data = data;
+        this.next = next;
+    }
+
+	public Node6 getNext() {
+		return next;
+	}
+
+	public void setNext(Node6 next) {
+		this.next = next;
+	}
+
+	public int getData() {
+		return data;
+	}
+
+	public void setData(int data) {
+		this.data = data;
+	}
+    
+}
+public class _LinkedListOfficial {
+
+	public static void main(String args[]) {
+
+		Scanner kb = new Scanner(System.in);
+		while(true){
+			System.out.println("아래 메뉴 중 선택");
+			System.out.println("1.추가 2.삭제 3.검색 4.print 5.맨 앞에 추가");
+			int ch = kb.nextInt();
+			switch(ch) {
+				case 1 :
+					System.out.println("추가할 data");
+					int no = kb.nextInt();
+					addFirst(no);
+					break;
+					
+				case 2 : 
+					System.out.println("삭제");
+					delete();
+					break;
+					
+				case 3 :
+					System.out.println("검색할 data");
+					int noS = kb.nextInt();
+					search(noS);
+					break;
+
+				case 4 :
+					System.out.println("출력");
+					print();
+					break;
+					
+				case 5 :
+									
+					circul();
+					break;
+			}
+		}			
+	}
+ 	static Node6 head;
+ 	static Node6 tail;
+ 	
+	public static void addFirst(int k) {
+		Node6 n = head;      // 삽입 전의 머리 노드
+		// n에서 여태까지 축적된 head를 받고 이를 다시 head의 next에 그대로 넣음으로써 node 연결
+		head = new Node6(k, n);
+	}
+	public static void circul() {
+		Node6 f = head;
+		
+		tail = f;
+		while(true) {
+			if(tail != null) {
+				tail.getNext();
+			}
+			else {
+				tail.setNext(head);
+				System.out.println(tail.getData());
+				System.out.println(tail.getNext().getData());		
+				break;
+			}
+			
+		}
+//		tail.setNext(head);
+		
+//		
+//		int i=0;
+//		while(i<10) {
+//			System.out.println(tail.getData());
+//			tail = tail.getNext();
+//			i++;
+//		}
+			
+//			if(f.getNext() != null) {
+//				f = f.getNext();
+//			}
+//			else {
+//				while(f != null) {
+//					f = f.getNext();
+//				}
+//				f = head;
+//				head = new Node6(k,f);
+//			       Node6 cir = head;
+//			        do {
+//			            System.out.println(cir.getData());
+//			            cir = cir.getNext();
+//			        } while (cir != head); 
+//			        break;
+//			}
+//		}
+	}
+
+	
+	public static void search(int k) {
+		Node6 sp = head;
+		while(sp != null) {
+			
+			if(sp.getData() == k) {
+				System.out.println(k + "는 저장되어 있습니다.");
+				break;
+			}
+			else {
+				sp = sp.getNext();
+				if(sp==null) {
+					System.out.println("no information");		
+				}
+			}
+		}
+	}
+	public static void delete() {
+		if(head != null) {
+			head = head.getNext();
+		}
+	}
+	public static void print() {
+		Node6 np = head;
+		while (np != null) {
+			System.out.print(np.getData());
+			System.out.print("  ");
+			np = np.getNext();
+		}
+		System.out.println();
+	}
+
+}

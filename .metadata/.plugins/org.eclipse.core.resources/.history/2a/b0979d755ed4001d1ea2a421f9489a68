@@ -1,0 +1,43 @@
+package test;
+
+
+class Bag<T>{
+	private T data;
+		
+	public Bag(T data) {
+		this.data = data;
+	}
+
+	public T getData() {
+		return data;
+	}
+
+	public void setData(T data) {
+		this.data = data;
+	}
+
+	void showType() {
+		System.out.println("T의 타입은 " + data.getClass().getName());
+	}
+	
+	
+}
+class Big{}
+class Small{}
+
+public class Generic {
+
+	public static void main(String[] args) {
+		Bag<Big> b = new Bag<>(new Big());
+		Bag<Small> s = new Bag<>(new Small());
+		Bag<Integer> i = new Bag<>(123);
+		Bag<String> str = new Bag<>("str");
+		
+		b.showType();
+		s.showType();
+		i.showType();
+		str.showType();
+
+	}
+
+}

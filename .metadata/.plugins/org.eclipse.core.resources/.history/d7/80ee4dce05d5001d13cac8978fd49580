@@ -1,0 +1,40 @@
+package test;
+
+
+
+class Person<T>{
+	private String name;
+	private T data;
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+}
+class data{ }
+interface Student<T>{
+	public static final int age = 10;
+	
+	public static void run() {
+			int tel = 30;
+	}
+
+}
+
+public class MultipleGiven_Interface extends Person implements Student{
+
+	public static void main(String[] args) {
+		Person p = new Person();
+		p.setName("khc");
+		
+		int s = Student.age;
+		Student.run();
+		System.out.println(p.getName() + " : " + s);
+		// TODO Auto-generated method stub
+
+	}
+
+}

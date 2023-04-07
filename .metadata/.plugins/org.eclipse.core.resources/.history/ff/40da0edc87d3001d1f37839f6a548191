@@ -1,0 +1,15 @@
+package test;
+
+import java.util.Scanner;
+
+public class test22 {
+
+	public static void main(String[] args) {
+	       Scanner kb = new Scanner(System.in);
+	        Long A = kb.nextLong();
+	        Long B = kb.nextLong();
+	        long C = A/B;
+	        System.out.println(C);
+	}
+
+}

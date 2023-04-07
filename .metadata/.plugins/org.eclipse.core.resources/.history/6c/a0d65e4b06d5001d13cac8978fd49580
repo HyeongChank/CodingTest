@@ -1,0 +1,50 @@
+package test;
+
+
+
+class Person<T>{
+	private String name;
+	private T data;
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	void showType() {
+		System.out.println("T의 타입은 " + data.getClass().getName());
+	}
+
+	
+}
+class data{ }
+interface Student<T>{
+	public static final int age = 10;
+	
+	public static void run() {
+			int tel = 30;
+	}
+
+}
+class Owner{}
+
+public class MultipleGiven_Interface extends Person {
+
+
+
+	public static void main(String[] args) {
+//		Person p = new Person();
+		Person<Owner> on = Person<>(new Owner());
+		Person<String> str = Person<>("gkd");
+		System.out.println(on.showType());
+//		p.setName("khc");
+		
+		int s = Student.age;
+		Student.run();
+		System.out.println(p.getName() + " : " + s);
+		// TODO Auto-generated method stub
+
+	}
+
+}

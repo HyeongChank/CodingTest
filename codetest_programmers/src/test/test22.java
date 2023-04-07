@@ -1,0 +1,16 @@
+package test;
+
+import java.util.Scanner;
+
+public class test22 {
+
+	public static void main(String[] args) {
+	       Scanner kb = new Scanner(System.in);
+	        double A = kb.nextDouble();
+	        double B = kb.nextLong();
+	        double C = A/B;
+	        
+	        System.out.println(C);
+	}
+
+}

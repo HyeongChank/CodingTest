@@ -1,0 +1,25 @@
+/**
+ * 
+ */
+/**
+ * @author SW
+ *
+ */
+module codetest_programmers {
+
+	requires poi;
+	requires poi.ooxml;
+	requires xmlbeans;
+	
+
+	
+}
+
+module poi.examples {
+    requires poi;
+    requires xmlbeans;
+
+    exports org.apache.poi.hssf.eventusermodel;
+    // Remove the following line
+    // exports org.apache.poi.xslf.usermodel;
+}

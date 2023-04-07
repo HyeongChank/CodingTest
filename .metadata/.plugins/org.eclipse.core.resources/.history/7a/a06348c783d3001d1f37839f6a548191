@@ -1,0 +1,52 @@
+package test;
+
+import java.util.Scanner;
+
+class Tree{
+	private int data;
+	private Tree left;
+	private Tree right;
+	public Tree() {
+		
+	}
+	public Tree(Tree left, Tree right) {
+	
+		this.left = left;
+		this.right = right;
+	}
+	public Tree getLeft() {
+		return left;
+	}
+	public void setLeft(Tree left) {
+		this.left = left;
+	}
+	public Tree getRight() {
+		return right;
+	}
+	public void setRight(Tree right) {
+		this.right = right;
+	}
+	public int getData() {
+		return data;
+	}
+	public void setData(int data) {
+		this.data = data;
+	}
+	
+}
+
+public class BinaryTree {
+
+	public static Tree left;
+	public static Tree right;
+	
+	public static void main(String[] args) {
+		Scanner kb = new Scanner(System.in);
+		
+		while(true) {
+			int a = kb.nextInt();
+		}
+
+	}
+
+}
