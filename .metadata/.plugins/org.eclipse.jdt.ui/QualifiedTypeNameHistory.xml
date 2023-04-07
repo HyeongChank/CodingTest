@@ -14,4 +14,6 @@
     <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="T"/>
     <fullyQualifiedTypeName name="test.Student"/>
+    <fullyQualifiedTypeName name="test.Owner"/>
+    <fullyQualifiedTypeName name="test.Person"/>
 </qualifiedTypeNameHistroy>

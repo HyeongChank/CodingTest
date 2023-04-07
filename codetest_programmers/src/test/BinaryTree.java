@@ -84,6 +84,7 @@ public class BinaryTree {
 	}
 	static Tree left;
 	static Tree right;
+	static Tree root;
 	public static void overdown(int a) {
 		while(left.getLeft() != null) {
 			left = left.getLeft();
@@ -95,7 +96,10 @@ public class BinaryTree {
 	}
 	public static void add(int a) {
 		
-	
+		if(root==null) {
+			
+		}
+		
 		if(a<head) {
 			Tree n = left;
 			left = new Tree(a, n);
