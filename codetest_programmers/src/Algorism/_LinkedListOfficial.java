@@ -1,0 +1,151 @@
+package test;
+// 연결 리스트 클래스
+
+import java.util.Scanner;
+
+
+class Node7 {
+    private int data;            
+    private Node7 next;        //다음노드
+
+    Node7(int data, Node7 next) {
+        this.data = data;
+        this.next = next;
+    }
+
+	public Node7 getNext() {
+		return next;
+	}
+
+	public void setNext(Node7 next) {
+		this.next = next;
+	}
+
+	public int getData() {
+		return data;
+	}
+
+	public void setData(int data) {
+		this.data = data;
+	}
+    
+}
+public class _LinkedListOfficial {
+
+	public static void main(String args[]) {
+
+		Scanner kb = new Scanner(System.in);
+		while(true){
+			System.out.println("아래 메뉴 중 선택");
+			System.out.println("1.추가 2.삭제 3.검색 4.print 5.circulation list");
+			int ch = kb.nextInt();
+			switch(ch) {
+				case 1 :
+					System.out.println("추가할 data");
+					int no = kb.nextInt();
+					addFirst(no);
+					break;
+					
+				case 2 : 
+					System.out.println("삭제");
+					int no2 = kb.nextInt();
+					delete(no2);
+					break;
+					
+				case 3 :
+					System.out.println("검색할 data");
+					int noS = kb.nextInt();
+					search(noS);
+					break;
+
+				case 4 :
+					System.out.println("출력");
+					print();
+					break;
+					
+				case 5 :
+									
+					circul();
+					break;
+			}
+		}			
+	}
+ 	static Node7 head;
+ 	static Node7 tail;
+ 	
+	public static void addFirst(int k) {
+		Node7 n = head;      // 삽입 전의 머리 노드
+		// n에서 여태까지 축적된 head를 받고 이를 다시 head의 next에 그대로 넣음으로써 node 연결
+		head = new Node7(k, n);
+	}
+	public static void circul() {
+		Node7 f = head;
+		
+		tail = f;
+		while(true) {
+			if(tail.getNext() != null) {
+				tail = tail.getNext();
+			}
+			else {
+				tail.setNext(head);
+				break;
+			}
+		}
+		int i=0;
+		while(i<10) {
+			System.out.println(tail.getData());
+			tail = tail.getNext();
+			i++;
+		}
+	}
+	
+	public static void search(int k) {
+		Node7 sp = head;
+		while(sp != null) {
+			
+			if(sp.getData() == k) {
+				System.out.println(k + "는 저장되어 있습니다.");
+				break;
+			}
+			else {
+				sp = sp.getNext();
+				if(sp==null) {
+					System.out.println("no information");		
+				}
+			}
+		}
+	}
+	
+	public static void delete(int k) {
+		
+		if (head.getData() ==k) {
+            head = head.getNext();
+            return;
+	        }
+
+	        // 삭제 대상 노드 찾기
+        Node7 p = head;
+        Node7 c = head.getNext();
+        while (c != null) {
+            if (c.getData() == k) {
+                p.setNext(c.getNext());
+                break;
+            }
+            p = c;
+            c = c.getNext();
+            		
+					
+		}
+	}
+	
+	public static void print() {
+		Node7 np = head;
+		while (np != null) {
+			System.out.print(np.getData());
+			System.out.print("  ");
+			np = np.getNext();
+		}
+		System.out.println();
+	}
+
+}
